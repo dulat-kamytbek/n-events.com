@@ -13,8 +13,8 @@ function addEventToList(event) {
 
     // Формируем HTML-разметку для мероприятия
     eventItem.innerHTML = `
-        <h3>${event.title}</h3>
-        <p><strong>Время проведения:</strong> ${event.time}</p>
+        <p><strong>Время проведения:</strong> ${event.time_spending}</p>
+        <p><strong>Название:</strong> ${event.name}</p>
         <p><strong>Место проведения:</strong> ${event.location}</p>
     `;
 
