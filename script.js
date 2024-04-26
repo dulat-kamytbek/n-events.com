@@ -33,4 +33,4 @@ async function loadEventsFromJSON(jsonPath) {
 }
 
 // Запуск загрузки данных из JSON файла
-loadEventsFromJSON('eventssko-v9.json'); // Укажите путь к вашему JSON файлу
+loadEventsFromJSON('eventssko-v9.json');
