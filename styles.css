@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.events {
+    margin-bottom: 30px;
+}
+
+.events h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#event-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.event-item h3 {
+    margin-top: 0;
+}
+
+.event-item p {
+    margin: 5px 0;
+}
