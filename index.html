@@ -35,18 +35,73 @@
                         </div>
                     </div>
                     <form id="registrationForm">
-                        <label for="eventName">Название мероприятия:</label><br>
-                        <input type="text" id="eventName" name="eventName"><br>
+                        <label for="eventName">Выберите мероприятие:</label><br>
+                        <select id="eventName" name="eventName">
+                            <!-- Ваш JSON-файл с мероприятиями будет загружаться динамически -->
+                        </select><br>
+                        <label for="quantity">Количество мест:</label><br>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" disabled><br>
                         <label for="username">Ваше имя:</label><br>
                         <input type="text" id="username" name="username"><br><br>
-                        <button type="submit">Зарегистрироваться</button>
+                        <button type="submit" disabled>Зарегистрироваться</button>
                     </form>
                 
                     <script>
+                        // Загрузка данных о мероприятиях из JSON-файла
+                        fetch('eventssko-v9.json')
+                            .then(response => response.json())
+                            .then(data => {
+                                // Получаем список мероприятий
+                                const events = data;
+                
+                                // Получаем элементы формы
+                                const eventNameSelect = document.getElementById("eventName");
+                                const quantityInput = document.getElementById("quantity");
+                                const submitButton = document.querySelector("button[type='submit']");
+                
+                                // Заполняем выпадающий список мероприятий
+                                events.forEach(event => {
+                                    const option = document.createElement('option');
+                                    option.textContent = event.name;
+                                    option.value = event.name;
+                                    eventNameSelect.appendChild(option);
+                                });
+                
+                                // Обработчик изменения выбранного мероприятия
+                                eventNameSelect.addEventListener('change', function() {
+                                    const selectedEventName = this.value;
+                                    const selectedEvent = events.find(event => event.name === selectedEventName);
+                
+                                    // Обновляем количество мест в соответствии с выбранным мероприятием
+                                    quantityInput.value = selectedEvent.remainingSeats;
+                
+                                    // Активируем кнопку отправки формы
+                                    submitButton.disabled = false;
+                                });
+                            });
+                
                         // Функция для регистрации на мероприятие
-                        function registerForEvent(eventName, username) {
-                            // ваша функция registerForEvent здесь
-                        }
+                        function registerForEvent(eventName, username, quantity) {
+                            if (typeof(Storage) !== "undefined") {
+                // Получаем данные из LocalStorage
+                let eventSeats = JSON.parse(localStorage.getItem(eventName));
+                
+                // Если данные не существуют, создаем новый объект
+                if (!eventSeats) {
+                    eventSeats = { totalSeats: quantity, remainingSeats: quantity };
+                } else {
+                    // Уменьшаем количество оставшихся мест
+                    eventSeats.remainingSeats -= 1;
+                }
+                
+                // Обновляем данные в LocalStorage
+                localStorage.setItem(eventName, JSON.stringify(eventSeats));
+                
+                console.log(`${username} успешно зарегистрирован(а) на мероприятие ${eventName}.`);
+            } else {
+                console.log("Извините, ваш браузер не поддерживает LocalStorage.");
+            }
+        }
                 
                         // Обработчик отправки формы
                         document.getElementById("registrationForm").addEventListener("submit", function(event) {
@@ -54,13 +109,13 @@
                             
                             // Получаем значения из формы
                             let eventName = document.getElementById("eventName").value;
+                            let quantity = parseInt(document.getElementById("quantity").value);
                             let username = document.getElementById("username").value;
                             
                             // Регистрируем пользователя на мероприятие
-                            registerForEvent(eventName, username);
+                            registerForEvent(eventName, username, quantity);
                             
                             // Очищаем поля формы
-                            document.getElementById("eventName").value = "";
                             document.getElementById("username").value = "";
                         });
                     </script>
