@@ -2,16 +2,17 @@ body {
     padding: 0;
     font-family: Helvetica;
     margin: 0;
+    background: #fbfbfd;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #ff0000;
     padding: 20px;
     text-align: center;
 }
 a {
-    text-decoration: none;
+    text-decoration: paleturquoise;
     color: #000;
   }
   .site-header { 
@@ -66,13 +67,6 @@ main {
 
 .event-item p {
     margin: 5px 0;
-}
-body {
-    background: #fbfbfd;
-}
-
-body {
-    background: #fbfbfd;
 }
 
 .new_footer_area {
