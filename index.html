@@ -48,76 +48,82 @@
                 
                     <script>
                         // Загрузка данных о мероприятиях из JSON-файла
-                        fetch('eventssko-v9.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                // Получаем список мероприятий
-                                const events = data;
-                
-                                // Получаем элементы формы
-                                const eventNameSelect = document.getElementById("eventName");
-                                const quantityInput = document.getElementById("quantity");
-                                const submitButton = document.querySelector("button[type='submit']");
-                
-                                // Заполняем выпадающий список мероприятий
-                                events.forEach(event => {
-                                    const option = document.createElement('option');
-                                    option.textContent = event.name;
-                                    option.value = event.name;
-                                    eventNameSelect.appendChild(option);
-                                });
-                
-                                // Обработчик изменения выбранного мероприятия
-                                eventNameSelect.addEventListener('change', function() {
-                                    const selectedEventName = this.value;
-                                    const selectedEvent = events.find(event => event.name === selectedEventName);
-                
-                                    // Обновляем количество мест в соответствии с выбранным мероприятием
-                                    quantityInput.value = selectedEvent.remainingSeats;
-                
-                                    // Активируем кнопку отправки формы
-                                    submitButton.disabled = false;
-                                });
-                            });
-                
-                        // Функция для регистрации на мероприятие
-                        function registerForEvent(eventName, username, quantity) {
-                            if (typeof(Storage) !== "undefined") {
-                // Получаем данные из LocalStorage
-                let eventSeats = JSON.parse(localStorage.getItem(eventName));
-                
-                // Если данные не существуют, создаем новый объект
-                if (!eventSeats) {
-                    eventSeats = { totalSeats: quantity, remainingSeats: quantity };
-                } else {
-                    // Уменьшаем количество оставшихся мест
-                    eventSeats.remainingSeats -= 1;
-                }
-                
-                // Обновляем данные в LocalStorage
-                localStorage.setItem(eventName, JSON.stringify(eventSeats));
-                
-                console.log(`${username} успешно зарегистрирован(а) на мероприятие ${eventName}.`);
-            } else {
-                console.log("Извините, ваш браузер не поддерживает LocalStorage.");
-            }
+fetch('events.json')
+    .then(response => response.json())
+    .then(data => {
+        // Получаем список мероприятий
+        const events = data;
+
+        // Получаем элементы формы
+        const eventNameSelect = document.getElementById("eventName");
+        const quantityInput = document.getElementById("quantity");
+        const submitButton = document.querySelector("button[type='submit']");
+
+        // Заполняем выпадающий список мероприятий
+        events.forEach(event => {
+            const option = document.createElement('option');
+            option.textContent = event.name;
+            option.value = event.name;
+            eventNameSelect.appendChild(option);
+        });
+
+        // Обработчик изменения выбранного мероприятия
+        eventNameSelect.addEventListener('change', function() {
+            const selectedEventName = this.value;
+            const selectedEvent = events.find(event => event.name === selectedEventName);
+
+            // Обновляем количество мест в соответствии с выбранным мероприятием
+            quantityInput.value = selectedEvent.remainingSeats || 0; // Если значение undefined, устанавливаем 0
+
+            // Активируем кнопку отправки формы
+            submitButton.disabled = false;
+        });
+    });
+
+                       // Функция для регистрации на мероприятие
+function registerForEvent(eventName, username, quantity) {
+    // Проверяем, поддерживается ли LocalStorage в браузере
+    if (typeof(Storage) !== "undefined") {
+        // Получаем данные из LocalStorage
+        let eventSeats = JSON.parse(localStorage.getItem(eventName));
+        
+        // Если данные не существуют, создаем новый объект
+        if (!eventSeats) {
+            eventSeats = { totalSeats: quantity, remainingSeats: quantity };
+        } else {
+            // Уменьшаем количество оставшихся мест
+            eventSeats.remainingSeats -= 1;
         }
-                
-                        // Обработчик отправки формы
-                        document.getElementById("registrationForm").addEventListener("submit", function(event) {
-                            event.preventDefault(); // Предотвращаем стандартное поведение отправки формы
-                            
-                            // Получаем значения из формы
-                            let eventName = document.getElementById("eventName").value;
-                            let quantity = parseInt(document.getElementById("quantity").value);
-                            let username = document.getElementById("username").value;
-                            
-                            // Регистрируем пользователя на мероприятие
-                            registerForEvent(eventName, username, quantity);
-                            
-                            // Очищаем поля формы
-                            document.getElementById("username").value = "";
-                        });
+        
+        // Обновляем данные в LocalStorage
+        localStorage.setItem(eventName, JSON.stringify(eventSeats));
+        
+        // Отображаем сообщение об успешной регистрации на странице
+        const successMessage = document.getElementById("successMessage");
+        successMessage.textContent = `${username} успешно зарегистрирован(а) на мероприятие ${eventName}.`;
+        successMessage.style.display = "block"; // Показываем сообщение
+    } else {
+        console.log("Извините, ваш браузер не поддерживает LocalStorage.");
+    }
+}
+
+// Обработчик отправки формы
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение отправки формы
+    
+    // Получаем значения из формы
+    let eventName = document.getElementById("eventName").value;
+    let quantity = parseInt(document.getElementById("quantity").value);
+    let username = document.getElementById("username").value;
+    
+    // Регистрируем пользователя на мероприятие
+    registerForEvent(eventName, username, quantity);
+    
+    // Очищаем поля формы
+    document.getElementById("username").value = "";
+});
+
+
                     </script>
                     <div class="col-lg-3 col-md-6">
                         <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
