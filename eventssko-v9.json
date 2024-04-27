@@ -4,62 +4,71 @@
         "name": "«Тамырын терең  жіберген  дала  жыршысы» -  Сәкен Нұрмақұлы Жүнісовтің 85 жылдығына арналған  Online – конференция\nОнлайн – конференция, посвященная писателю С.Жунусову\n«Певец степи, пустивший корни»",
         "location": "Областная детско-юношеская библиотка им. Г.Мусрепова",
         "id": "1",
-        "details": "https://qyzyljartv.kz/ru/news/41532"
+        "details": "https://qyzyljartv.kz/ru/news/41532",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Январь",
         "name": "Жетістіктерге жеткен  жастармен кездесу кеші  «Қазақстанның болашағы – жастар» (Жастар жылына арналған)\n\nВечер встречи, посвященный Году молодежи  «Молодежь – будущее Казахстана»",
         "location": "Областная детско-юношеская библиотка им. Г.Мусрепова",
         "id": "2",
-        "details": "https://auezov.edu.kz/rus/home-ru-ru/1288-"
+        "details": "https://auezov.edu.kz/rus/home-ru-ru/1288-",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Январь",
         "name": "Читательская конференция  в формате TD-X «Молодёжь и реализация программы «Семь граней Великой Степи»",
         "location": "ОУНБ им. С. Муканова",
         "id": "3",
-        "details": "https://sm.nis.edu.kz/proekty/klub-tedx-nis"
+        "details": "https://sm.nis.edu.kz/proekty/klub-tedx-nis",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Февраль ",
         "name": "Творческая встреча «Поэзии чарующие звуки» с  членами литературного объединения (в рамках программы «Рухани жаңғыру»)",
         "location": "ОУНБ им. С. Муканова",
         "id": "4",
-        "details": "https://mysl.kazgazeta.kz/news/15694"
+        "details": "https://mysl.kazgazeta.kz/news/15694",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Февраль ",
         "name": "Круглый стол «Қазақ еліне тағзым= Поклон казахской земле» (к Дню благодарности)",
         "location": "ОУНБ им. С. Муканова",
         "id": "5",
-        "details": "https://www.instagram.com/sch_35krg/p/C35P4sgN93x/?img_index=1"
+        "details": "https://www.instagram.com/sch_35krg/p/C35P4sgN93x/?img_index=1",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Март ",
         "name": "Литературно-музыкальный вечер «Армысың, әз-Наурыз!» ",
         "location": "ОУНБ им. С. Муканова",
         "id": "6",
-        "details": "http://pavlodarlibrary.kz/ru/events/novosti/literaturnyij-vecher-%C2%ABarmyisyi%D2%A3,-%D3%99z-nauryiz!"
+        "details": "http://pavlodarlibrary.kz/ru/events/novosti/literaturnyij-vecher-%C2%ABarmyisyi%D2%A3,-%D3%99z-nauryiz!",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Март ",
         "name": "Творческая встреча с казахским музыкально–драматическим театром им. С. Муканова",
         "location": "ОУНБ им. С. Муканова",
         "id": "7",
-        "details": "https://visit.sko.kz/page/read/Oblastnoj_kazahskij_muzykalnodramaticheskij_teatr_imeni_Sabita_Mukanova.html?lang=ru"
+        "details": "https://visit.sko.kz/page/read/Oblastnoj_kazahskij_muzykalnodramaticheskij_teatr_imeni_Sabita_Mukanova.html?lang=ru",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Март ",
         "name": "Выставка: к 95 летию со дня рождения Иманбаева Зейнел-Габи  « Жақсының аты өшпес»",
         "location": "СКГА",
         "id": "8",
-        "details": "https://mtrk.kz/ru/2024/01/12/vystavka-o-zhizni-i-deyatelnosti-pisat/"
+        "details": "https://mtrk.kz/ru/2024/01/12/vystavka-o-zhizni-i-deyatelnosti-pisat/",
+        "remainingSeats": 100
     },
     {
         "time_spending": "Март ",
         "name": "Круглый стол: 30 лет со дня вывода советских войск из Афганистана «Память огненных лет» ",
         "location": "СКГА",
         "id": "9",
-        "details": "https://arhivsqo.wordpress.com/2019/02/12/%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C-%D0%BE%D0%B3%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D0%BB%D0%B5%D1%82/"
+        "details": "https://arhivsqo.wordpress.com/2019/02/12/%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C-%D0%BE%D0%B3%D0%BD%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D0%BB%D0%B5%D1%82/",
+        "remainingSeats": 100
     }
 ]
