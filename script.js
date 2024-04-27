@@ -6,21 +6,25 @@ async function fetchJSON(jsonPath) {
 }
 
 // Функция для добавления мероприятия в список на странице
+// Функция для добавления мероприятия в список на странице с ссылкой на детали
 function addEventToList(event) {
     // Создаем элемент списка для мероприятия
     const eventItem = document.createElement('li');
     eventItem.classList.add('event-item');
 
-    // Формируем HTML-разметку для мероприятия
+    // Формируем HTML-разметку для мероприятия с ссылкой на детали
     eventItem.innerHTML = `
-        <p><strong>Время проведения:</strong> ${event.time_spending}</p>
-        <p><strong>Название:</strong> <a href="detailes.html?id=${event.id}">${event.name}</a></p>
-        <p><strong>Место проведения:</strong> ${event.location}</p>
+        <a href="${event.details}" target="_blank"> <!-- Открываем ссылку в новой вкладке -->
+            <p><strong>Время проведения:</strong> ${event.time_spending}</p>
+            <p><strong>Название:</strong> ${event.name}</p>
+            <p><strong>Место проведения:</strong> ${event.location}</p>
+        </a>
     `;
 
     // Добавляем мероприятие в список
     document.getElementById('event-list').appendChild(eventItem);
 }
+
 
 // Чтение JSON файла и добавление данных на страницу
 async function loadEventsFromJSON(jsonPath) {
