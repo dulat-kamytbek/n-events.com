@@ -48,16 +48,16 @@
                 
                     <script>
                         // Загрузка данных о мероприятиях из JSON-файла
-fetch('events.json')
-    .then(response => response.json())
-    .then(data => {
+                        fetch('events.json')
+                        .then(response => response.json())
+                        .then(data => {
         // Получаем список мероприятий
-        const events = data;
+                        const events = data;
 
         // Получаем элементы формы
-        const eventNameSelect = document.getElementById("eventName");
-        const quantityInput = document.getElementById("quantity");
-        const submitButton = document.querySelector("button[type='submit']");
+                        const eventNameSelect = document.getElementById("eventName");
+                        const quantityInput = document.getElementById("quantity");
+                        const submitButton = document.querySelector("button[type='submit']");
 
         // Заполняем выпадающий список мероприятий
         events.forEach(event => {
